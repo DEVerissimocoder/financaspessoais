@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form action="{% url 'regCard' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ formCard.as_p }}
+    <button type="submit">enviar</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form action="{% url 'regExpense' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ formExpense.as_p }}
+    <button type="submit">enviar</button>
+</form>
+{% endblock content %}
+

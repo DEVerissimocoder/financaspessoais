@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form action="{% url 'regInvestment' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ formInvestment.as_p }}
+    <button type="submit">enviar</button>
+</form>
+{% endblock content %}
+

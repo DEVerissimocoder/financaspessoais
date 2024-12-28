@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'finances/css/style.css'%}"/>
+</head>
+<body>
+    {% block header %} 
+    <nav>
+        <ul>
+          <li><a href="{% url 'regExpense' %}">Despesa</a></li>
+          <li><a href="{% url 'regRevenue' %}">Receita</a></li>
+          <li><a href="{% url 'regInvestment' %}">Investimento</a></li>
+          <li><a href="{% url 'regCard' %}">Cartão</a></li>
+          <li><a href="{% url 'regPerson' %}">Pessoa</a></li>
+
+          <li><a href="{% url 'listExpense' %}">Ver despesas</a></li>
+          <li><a href="{% url 'listRevenue' %}">Ver receitas</a></li>
+        </ul>
+      </nav><br><br><br>
+    
+    {% endblock header %}
+    
+    <div id="conteudo">
+      {% block content %}  {% endblock content %}
+    </div>
+    {% block bottom %}   
+    
+    {% endblock bottom %}
+    
+</body>
+</html>

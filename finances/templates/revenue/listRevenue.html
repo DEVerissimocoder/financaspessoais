@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<table>
+    <tr>
+      <th>CARTÃO</th>
+      <th>ORIGEM/PESSOA</th>
+      <th>DATA</th>
+      <th>DESCRIÇÃO</th>
+      <th>VALOR</th>
+      <th>STATUS</th>
+      <th colspan="2">ação</th>
+      
+    </tr>
+    {% for revenue in revenues %}
+    <tr>
+      <td>{{revenue.card}}</td>
+      <td>{{revenue.person}}</td>
+      <td>{{revenue.date}}</td>
+      <td>{{revenue.description}}</td>
+      <td>{{revenue.value}}</td>
+      <td>{{revenue.status}}</td>
+      <td><a href="{% url 'alterRevenue' revenue.id %}">editar</a></td>
+      <td><a href="{% url 'deleteRevenue' revenue.id %}">deletar</a></td>
+      
+    </tr>
+    {% endfor %}
+    <h2>total: R${{totRevenue|floatformat:2}}</h2>
+  </table>
+{% endblock content %}
