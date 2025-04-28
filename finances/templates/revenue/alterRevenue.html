@@ -1,9 +1,0 @@
-{% extends 'index.html' %}
-
-{% block content %}
-<form method="post", action="{% url 'alterRevenue' pk %}">
-    {% csrf_token %}
-    {{ formRevenue.as_p }}
-    <button type="submit">salvar</button>
-</form>
-{% endblock content %}

@@ -1,9 +1,0 @@
-{% extends 'index.html' %}
-
-{% block content %}
-<form action="{% url 'regPerson' %}" method="POST">
-    {% csrf_token %}
-    {{ formPerson.as_p }}
-    <button type="submit">enviar</button>
-</form>
-{% endblock content %}
