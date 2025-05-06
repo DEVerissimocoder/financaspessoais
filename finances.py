@@ -12,22 +12,32 @@ def createExpense():
     dict_expenses={
         "payment_method": payment_method,
         "person"        : person        
-    }     
-    arquivo=json.load()
-    with open('financespessoais.json', 'a', encoding='utf-8') as arquivo:
-        json.dump(dict_expenses, arquivo, ensure_ascii=False)
-        
+    } 
+    conteudo_arquivo=listExpense()
+    print(conteudo_arquivo)
+    '''if not conteudo_arquivo:
+        print("arquivo vazio")
+        with open('financespessoais.json', 'w', encoding='utf-8') as arquivo:
+            json.dump(arquivo, ensure_ascii=False)        
+    else:      
+        print("arquivo tem algum conteudo")
+        with open('financespessoais.json', 'w', encoding='utf-8') as arquivo:
+            json.dump(conteudo_arquivo.append(dict_expenses), arquivo)
+    print(conteudo_arquivo)
+            '''
 def listExpense():
     with open('financespessoais.json', 'r') as arquivo:
         conteudo = json.load(arquivo)
+        print(conteudo, type(conteudo))
     print(f'''
           ----------------  -------  ---------  --------  -----------------
           |  FORMA_PAGAM     PESSOA   DESCRIÇÃO  STATUS    MODALIDADE     |
           ----------------  -------  ---------  --------  -----------------
-          |      {conteudo['payment_method']}         {conteudo['person']}      {conteudo['description']}      {conteudo['status']}     {conteudo['modalidade']}   |
+          |      {conteudo[0]['payment_method']}         {conteudo[0]['person']}|
           -----------------------------------------------------------------   
 ''')
     return conteudo
    
-#listExpense()
+
 createExpense()
+listExpense()
